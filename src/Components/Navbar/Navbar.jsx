@@ -30,6 +30,11 @@ const Navbar = () => {
     }
   };
 
+  const handleAboutClick = () => {
+    
+      navigate('/about');
+    
+  };
   const handleDropdownItemClick = () => {
     setIsDropdownOpen(false); // Close dropdown when an item is clicked
   };
@@ -86,7 +91,7 @@ const Navbar = () => {
             </div>
             <Link to="/partners"><button className={style.navButton}>For Partners</button></Link>
             <Link to="/doctors"><button className={style.navButton}>For Doctors</button></Link>
-            <button className={style.navButton}>About Us</button>
+            <button onClick={handleAboutClick} className={style.navButton}>About Us</button>
           </div>
 
           <div className={style.rightSection}>
@@ -117,7 +122,7 @@ const Navbar = () => {
         {/* Single Dropdown for Services (Desktop) */}
         {isDropdownOpen && (
           <div className={style.verticalList}>
-            <Link to="/book-appointment" onClick={handleDropdownItemClick}>
+            <Link to="/appointments" onClick={handleDropdownItemClick}>
               <div>Book a doctor's appointment</div>
             </Link>
             <Link to="/book-test" onClick={handleDropdownItemClick}>
@@ -149,10 +154,10 @@ const Navbar = () => {
           Services
           <i className={`fas fa-caret-down ${style.dropdownArrow} ${isMobileDropdownOpen ? style.rotate : ''}`}></i>
         </div>
-        
+
         {isMobileDropdownOpen && (
           <div className={`${style.vertiList} ${isMobileDropdownOpen ? style.show : ''}`}>
-            <Link to="/book-appointment" onClick={handleDropdownItemClick}>
+            <Link to="/appointments" onClick={handleDropdownItemClick}>
               <div>Book a doctor's appointment</div>
             </Link>
             <Link to="/book-test" onClick={handleDropdownItemClick}>
